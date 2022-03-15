@@ -13,10 +13,9 @@ const Server =async ()=>{
     applyPassportStrategy(passport)
 
     await connection()
-
     //register api
     new UserApi(app)
-    new Auth(app)
+    new Auth(app)  
     new CommentApi(app)
 
     app.listen(3000,()=>{

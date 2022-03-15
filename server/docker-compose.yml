@@ -1,10 +1,25 @@
 version: '3.7'
 services:
-  mongodb_container:
-    image: mongo:latest
+  server:
+    container_name: backend
+    image: server:dev
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports: 
+      - 3002:3000
+    links:
+      - mongo
+    depends_on:
+      - mongo
+    volumes:
+      - server:/server/node_modules
+      - ${PWD}:server
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    - CHOKIDAR_USEPOLLING=true
+  mongo:
+    container_name: mongo
+    image: mongo
     ports:
       - 27017:27017
     volumes:
@@ -12,3 +27,4 @@ services:
 
 volumes:
   mongodb_data_container:
+  server:

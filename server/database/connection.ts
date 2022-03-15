@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 const connection = async () => {
     try {
-       const mongo = await mongoose.connect('mongodb://root:rootpassword@localhost:27017') 
+       const mongo = await mongoose.connect('mongodb://mongo:27017') 
        if(mongo){
             console.log('Database connected')
        }
