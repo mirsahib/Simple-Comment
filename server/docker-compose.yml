@@ -14,7 +14,7 @@ services:
       - mongo
     volumes:
       - server:/server/node_modules
-      - ${PWD}:server
+      - ${PWD}:/server
     environment:
     - CHOKIDAR_USEPOLLING=true
   mongo:

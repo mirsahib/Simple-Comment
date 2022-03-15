@@ -16,7 +16,7 @@ const Server =async ()=>{
     //register api
     new UserApi(app)
     new Auth(app)  
-    new CommentApi(app)
+    new CommentApi(app) 
 
     app.listen(3000,()=>{
         console.log('App started at port',3000)
